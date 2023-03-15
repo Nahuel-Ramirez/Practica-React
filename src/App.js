@@ -6,15 +6,19 @@ import TaskForm from "./components/TasksForm/TasksForm";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
   return (
     <>
       <Container>
         <Row justify={"center"} mt={5}>
-          <Col size={6}>
-            <TaskForm />
+          <Col size={4}>
+            <TaskForm addTask={addTask} />
           </Col>
           <Col size={6}>
-            <Tasks />
+            <Tasks tasks={tasks} />
           </Col>
         </Row>
       </Container>
