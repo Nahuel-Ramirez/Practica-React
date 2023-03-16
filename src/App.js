@@ -10,6 +10,12 @@ function App() {
   const addTask = (task) => {
     setTasks([...tasks, task]);
   };
+
+  const deleteTask = (id) => {
+    const finalTask = tasks.filter((task) => task.id !== id);
+    setTasks(finalTask);
+  };
+
   return (
     <>
       <Container>
@@ -18,7 +24,7 @@ function App() {
             <TaskForm addTask={addTask} />
           </Col>
           <Col size={6}>
-            <Tasks tasks={tasks} />
+            <Tasks tasks={tasks} deleteTask={deleteTask} />
           </Col>
         </Row>
       </Container>

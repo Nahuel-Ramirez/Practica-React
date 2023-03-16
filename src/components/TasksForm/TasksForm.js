@@ -1,12 +1,13 @@
 import { Form, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
+import short from "short-uuid";
 
 const TaskForm = ({ addTask }) => {
   const handleAddTask = (e) => {
     e.preventDefault();
-    console.log("handle tasks");
     const [taskName, taskDescription] = e.target.elements;
     addTask({
+      id: short.generate().slice(18),
       name: taskName.value.trim(),
       description: taskDescription.value.trim(),
     });
