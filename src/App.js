@@ -19,11 +19,14 @@ function App() {
   return (
     <>
       <Container>
-        <Row justify={"center"} mt={5}>
-          <Col size={4}>
+        <Row justify="center">
+          <h1>Tareas</h1>
+        </Row>
+        <Row justify="space-around" mt={5} align="center">
+          <Col size={2}>
             <TaskForm addTask={addTask} />
           </Col>
-          <Col size={6}>
+          <Col size={2}>
             <Tasks tasks={tasks} deleteTask={deleteTask} />
           </Col>
         </Row>
