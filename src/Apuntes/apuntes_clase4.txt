@@ -1,0 +1,46 @@
+Arbol de componentes -> Elementos de React
+
+Un Arbol es una estructura de datos, como tambien lo son las listas enlazadas,
+los vectores, etc. Son formas de representar un problema.
+
+Lo que tiene que hacer React es transformar un arbol (A) en otro (B) de forma EFICIENTE.
+
+O Notation, muestra la cantidad de repeticiones o complejidad para resolver un problema.
+
+React implementa el Algoritmo Heuristico.
+A traves de suposiciones no destruye todo el arbol sino que compara elementos de la raiz y actualiza solo los cambios. En el caso que los elementos sean iguales, se mete en los atributos y se fija si hay algun cambio para actualizar.
+
+Ej:
+
+A: <a href=""/>
+B: <a href="https://www.google.com.ar"/>
+
+Cambia solo el href, pero no destruye el elemento.
+
+Recursion en hijos
+A
+    <ul>
+        <li>First<li/>
+    <ul>
+
+B
+    <ul>
+        <li>First<li/>
+        <li>Second<li/>
+    <ul>
+
+La raiz del arbol no cambia (ul) react agrega otro elemento y no destruye.
+
+C
+    <ul>
+        <li>3er<li/>
+        <li>First<li/>
+        <li>Second<li/>
+    </ul>
+
+Aca react explota. Performa mal.
+Cambia cada hijo en lugar de mantener lo que ya estaba intacto. Cambia toda la estructura.
+Es por esto que en el .map() ponemos la key= Con esto no reconstruye todo ya que todos tienen su key y listo.
+
+ -- aclaracion --> el ESTADO es ASINCRONICO
+

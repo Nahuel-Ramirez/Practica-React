@@ -9,6 +9,8 @@ function App() {
 
   const addTask = (task) => {
     setTasks([...tasks, task]);
+    //El estado es asincrono entonces hago ...tasks para q me guarde la primer tarea
+    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
   };
 
   const deleteTask = (id) => {
